@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Forum&family=Mulish:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Cormorant+SC:wght@300&family=Josefin+Sans:wght@300&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 
 * {
@@ -9,8 +9,8 @@
 }
 
 :root {
-    --font-primary: "Quicksand", serif;
-    --font-secundary: "Forum", serif;
+    --font-primary: "Cormorant SC", serif;
+    --font-secundary: "Josefin Sans", serif;
     --font-action: "Mulish", serif;
 }
 
@@ -121,6 +121,7 @@ header {
     position: absolute;
     top: 30%;
     left: 15%;
+
 }
 
 .banner h1 {
@@ -146,10 +147,24 @@ header {
 }
 
 .banner button {
-    font-family: var(--font-action);
-    color: #fff;
+
+    text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    color: #000000;
+
+    padding: 1rem 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: moveBanner 1s 0.9s forwards;
+
+    /* font-family: var(--font-action);
+    color: #fff;
+    text-transform: uppercase;
+    
     background: #ff0084;
     background: -webkit-linear-gradient(to right, #33001b, #ff0084);
     background: linear-gradient(to right, #33001b, #ff0084);
@@ -158,9 +173,40 @@ header {
     border-radius: 5px;
     cursor: pointer;
     opacity: 0;
-    animation: moveBanner 1s 0.9s forwards;
+     */
+    /* }
+
+.banner button:hover {
+    color: #833ab4; */
+
 }
 
+.banner button:hover {
+    color: #833ab4;
+}
+
+.banner button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background: #c0c0c0;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #BB377D, #FBD3E9); */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #BB377D, #FBD3E9); */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: width 1s;
+}
+
+.banner button:hover::before {
+    width: 150%;
+}
 
 @keyframes moveBanner {
     0% {
@@ -185,6 +231,7 @@ header {
     top: 0;
     right: -20rem;
     transition: all 1s;
+    z-index: 99
 }
 
 .show-menu .sidebar {
@@ -292,7 +339,7 @@ header {
     color: #4b4b4b;
     border-bottom: solid 2px #5C0030;
     margin-bottom: 1.5rem;
-    margin-top: .5rem;
+    margin-top: 1rem;
 }
 
 .conhecimento-header {
@@ -302,11 +349,114 @@ header {
 }
 
 .conhecimento-header i {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .conhecimento-header h3 {
     font-family: var(--font-secundary);
     font-size: 2rem;
     padding-left: 1rem;
+}
+
+.conhecimento-text {
+    font-family: var(--font-secundary);
+    margin-top: 1rem;
+    text-align: justify;
+}
+
+.conhecimentos-img-wrapper {
+    grid-column: 7 / 11;
+    grid-row: 2/ 6;
+    width: 100%;
+}
+
+.conhecimentos-img-wrapper img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.projetos {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+.card {
+    width: 18rem;
+    height: 25rem;
+    position: relative;
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    border-radius: 0.5rem;
+}
+
+.card-img-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.card:hover .card-img-wrapper img {
+    opacity: 0.5;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    padding: 2rem;
+    text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, 0.6);
+    transition: all 0.3s;
+}
+
+.card-info h2 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 500;
+    color: #eee;
+}
+
+.card-info h3 {
+    font-family: var(--font-action);
+    font-weight: bolder;
+    color: #ff4081;
+    margin-bottom: 1.5rem;
+}
+
+.card-info p {
+    font-family: var(--font-secundary);
+    color: #eee;
+    font-weight: 400;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background: #6a3093;
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093);
+    background: linear-gradient(to left, #a044ff, #6a3093);
+    font-family: var(--font-action);
+    color: #eee;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);
+}
+
+.card-info button {
+    width: 8rem;
+    height: 2.5rem;
+}
+
+.card:hover .card-info {
+    bottom: 2rem;
+    opacity: 1;
+    visibility: visible;
 }
